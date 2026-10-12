@@ -4,8 +4,10 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
 
 public class EchoiminionEntity extends HostileEntity {
@@ -23,6 +25,25 @@ public class EchoiminionEntity extends HostileEntity {
 
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
     }
+
+    @Override
+    public boolean damage(ServerWorld world, DamageSource source, float amount) {
+        boolean damaged = super.damage(world, source, amount);
+
+        if (damaged && source.getAttacker() instanceof PlayerEntity) {
+            world.createExplosion(
+                    this,
+                    this.getX(),
+                    this.getY(),
+                    this.getZ(),
+                    3.0F,
+                    World.ExplosionSourceType.MOB
+            );
+        }
+
+        return damaged;
+    }
+
 
     public static DefaultAttributeContainer.Builder createMyMobAttributes() {
         return HostileEntity.createHostileAttributes()
