@@ -14,7 +14,7 @@ public class EchoiminionEntities {
             Registries.ENTITY_TYPE,
             Identifier.of("echoiminion", "echoiminion"),
             EntityType.Builder.create(EchoiminionEntity::new, SpawnGroup.MONSTER)
-                    .dimensions(0.3f, 0.75f)
+                    .dimensions(0.6f, 1.44f)
                     .build(RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of("echoiminion", "echoiminion")))
     );
 
