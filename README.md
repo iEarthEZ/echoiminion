@@ -1,6 +1,6 @@
 # Echoiminion
 
-A strange creature is out there at nighat. And it may hunt you 😃
+A strange creature is out there at night. And it may hunt you 😃
 
 ## About
 
