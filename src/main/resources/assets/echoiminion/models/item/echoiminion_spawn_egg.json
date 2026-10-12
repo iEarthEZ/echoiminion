@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "echoiminion:item/echoiminion_spawn_egg"
+  }
+}
