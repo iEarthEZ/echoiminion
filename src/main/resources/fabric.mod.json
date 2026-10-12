@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "echoiminion",
+  "version": "${version}",
+  "name": "echoiminion",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/echoiminion/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "com.iearth60.echoiminion.client.EchoiminionDataGenerator"
+    ],
+    "client": [
+      "com.iearth60.echoiminion.client.EchoiminionClient"
+    ],
+    "main": [
+      "com.iearth60.echoiminion.Echoiminion"
+    ]
+  },
+  "mixins": [
+    "echoiminion.mixins.json",
+    {
+      "config": "echoiminion.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
